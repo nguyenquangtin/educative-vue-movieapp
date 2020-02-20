@@ -1,10 +1,12 @@
 <template>
   <ul>
-    <li v-for="movie in movies" :key="movie.imdbID">{{ movie.Title }}</li>
+    <movie-list-item v-for="movie in movies" :movie="movie" :key="movie.imdbID" />
 </ul>
 </template>
 
 <script>
+import MovieListItem from './MovieListItem'
+
 export default {
   name: 'movie-list',
   props: {
@@ -12,6 +14,9 @@ export default {
       type: Array,
       required: true
     }
+  },
+  components: {
+    MovieListItem
   }
 }
 </script>
